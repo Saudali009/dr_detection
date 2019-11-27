@@ -189,7 +189,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String base64String = Base64.encodeToString(byteArray, Base64.NO_WRAP);
 
         if (base64String != null && !base64String.isEmpty()) {
-            Log.e(TAG, "Base 64 String ==> " + base64String);
             sendVerificationRequest(base64String);
         }
     }
@@ -207,8 +206,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void sendRequestToServer(String ip,String base64String) {
-        //RetrofitClient client = new RetrofitClient(ip);
-        final ApiInterface service = RetrofitClient.getInstance().create(ApiInterface.class);
+        RetrofitClient client = new RetrofitClient(ip);
+        final ApiInterface service = client.getInstance().create(ApiInterface.class);
         Call<JsonObject> call = service.sendClassificationRequest(base64String);
 
         call.enqueue(new Callback<JsonObject>() {
@@ -227,6 +226,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             }
                         }
                     }else {
+                        hideLoaderScreen();
                         Utils.displayMessage(MainActivity.this,"Server is not responding. Please try again.");
                     }
                 } catch (Exception ex) {

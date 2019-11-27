@@ -9,7 +9,7 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("detect/")
+    @POST("/detect")
     Call<JsonObject> sendClassificationRequest(
             @Field("image") String imageHash
     );
