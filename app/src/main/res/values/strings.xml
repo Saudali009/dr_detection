@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DR_Detection</string>
+    <string name="dr_detector">DR Detector</string>
+    <string name="request_in_process_n_please_wait">Request in Process \n Please Wait..</string>
+    <string name="enter_the_targeted_ip">Enter the targeted IP</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="app_not_work">App will not work without permissions. Please allow permissions and try again.</string>
+    <string name="yes">Yes</string>
+    <string name="Ok">OK</string>
+    <string name="server_not_responding">Server not responding. Please try later.</string>
+    <string name="connection_error">App is connected to poor internet connection</string>
+
+</resources>
